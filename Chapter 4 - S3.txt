@@ -1,0 +1,43 @@
+S3
+*Simple Storage Service
+*Simple key-value store
+*Provides devs and IT teams with secure, durable and highly-scalable object storage
+*Easy to use with simple web services interface to store/retrieve any amount of data from anywhere on the web
+*Object-based storage - allows you to upload files (from 0B to 5TB)
+- unlimited storage (but you pay by the GB)
+- files stored in buckets
+- when uploading a file, you will receive a HTTP 200 code if upload successful
+*Bucket - folder in the cloud (can have folders inside buckets) and has universal namespace (names must be unique globally)
+- address will look like this: https://s3-eu-west-1.amazonaws.com/acloudguru
+*Safe
+*Data spread across multiple devices and facilities
+- Read after Write consistency for PUTS of new Objects - can always read straight after a write (even 1ms after)
+- Eventual Consistency for overwrite PUTS and DELETES (can take time to propagate) - reading after update may give either old or new version (but will eventually give new version - this is because S3 is spread over 
+multiple AZs and needs a little time to propagate out to other AZs)
+*Object-based - objects consist of Key (name of object), Value (data - made up of sequence of bytes), Version ID (important for versioning), Metadata (data about data), Subresources (Access Control Lists, Torrent, etc.)
+*Build for 99.99% availability for S3 platform
+*Amazon Guarantee 99.9% availability
+*Amazon guarantees 99.999999999% durability for S3 info (11 9s)
+*Tiered storage available 
+*Lifecycle management - can be moved from one storage tier to another depending on age of file
+*Versioning - can have version control on files
+*Encryption
+*Secure data using Access Control Lists and Bucket Policies
+*Uses redundant storage (designed to sustain loss of 2 facilities concurrently)
+*S3 Standard - durable, most expensive option, immediately available, frequently accessed
+*S3-IA - (Infrequently Accessed) for data accessed less frequently but requires rapid access - charged a retrieval fee but lower general fee than S3
+*S3 One Zone-IA - lower cost than S3-IA but doesn't have multiple AZ data resilience (same as S3-IA but only in one AZ)
+*Glacier - very cheap, used for archival only, standard retrieval time takes 3 - 5 hours
+*S3 charges - storage, requests, storage management pricing (metadata, tagging who it belongs to), data transfer pricing, transfer acceleration (allows fast, easy & secure transfers of files over long distances between end users and an S3 bucket)
+% Data Consistency Model is important in exam
+% S3 is object-based - allows uploading of files
+% for files only (no databases, OSs, applications, etc.)
+% files can be 0B - 5TB
+% unlimited storage
+% files stored in buckets
+% S3 is universal namespace - names must be unique globally
+% example of bucket name: https://s3-eu-west-1.amazonaws.com/acloudguru
+% Read after write consistency and eventual consistency (consistency models)
+% S3 storage tiers - S3 standard, S3-IA, S3 One Zone-IA, Glacier
+% Core fundamentals of S3 object - Key, Value, Version ID, Metadata, Subresources (ACL & Torrent)
+% Read S3 FAQ before exam!

@@ -1,0 +1,30 @@
+IAM
+
+*Allows you to manage users and their level of access to AWS Console
+*Centralised control of AWS account
+*Shared access to AWS account
+*Granular Permissions
+*Identity Federation
+*Multifactor Authentication
+*Provide temp. access for users and services
+*Allows setup of password rotation policy
+*Integrates with many different AWS services
+*Supports PCI DSS Compliance
+*Critical terms:
+- Users (end users)
+- Groups (collection of users under one set of permissions)
+- Roles (you create roles & assign to AWS resources)
+- Policies (document defining permissions) - made up of JSON (JavaScript Object Notation) - consists of key-value pair (eg. "Effect":"Allow" with Effect being key and Allow being value)
+*IAM is global (doesn't have a region)
+- this is because users, groups and resources are universally available
+*Roles
+- Secure way to grant permissions to entities that you trust (IAM user in another account, app. code running on EC2 instance, etc.)
+*Billing Alerts and Alarms
+- bill goes over a certain threshold and alarm is triggered
+*Root account - first account created after AWS account setup, it has complete admin access
+*New users have no permissions when first created but are assigned Access Key ID and Secret Access Keys
+- secret access keys are not the same as passwords - can be used to communicate with AWS via cmd line for example
+*Must setup MFA on root account
+*Can customise and create your own password rotation policies
+% Know why IAM is global 
+% Know about Billing Alerts and Alarms

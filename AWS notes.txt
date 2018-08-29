@@ -1,0 +1,238 @@
+AWS Training - Certified Solutions Architect Associate
+
+For exam tips, see %
+
+*Exam can be tough
+*Designed for people with no Cloud experience
+
+10,000 Foot Overview
+*AWS Platform contains Services and Global Infrastructure
+Global Infrastructure contains:
+*Region - geographical area
+		- each region consists of 2 or more availability zones (AZ)
+*Availability Zone - otherwise known as one or more discrete Data Centers
+*Edge Location - end points for AWS that are used to cache content
+			   - consists of CloudFront (Amazon's Content Delivery Network (CDN))
+			   - more edge locations than regions
+			   - means info doesn't have to be pulled from far away locations every time (can be cached)
+% Know difference between region, AZ and Edge Location
+
+Services contains:
+*Compute - EC2 (Elastic Compute Cloud - virtual machines inside AWS platform)
+		 - EC2 Container Service (run and manage Docker containers)
+		 - Elastic Beanstalk (for devs who don't understand AWS and just want to upload code)
+		 - Lambda (code uploaded to cloud - you control when it executes)
+		 - Lightsail (Amazon's VPS (Virtual Private Service) - designed for people who don't understand AWS)
+		 - Batch (used for Batch computing in the Cloud)
+*Storage - S3 (Simple Storage Service - object-based storage, upload files into buckets in the Cloud)
+		 - EFS (Elastic File System - network-attached storage, storage can be mounted to multiple virtual machines)
+		 - Glacier (data archiving)
+		 - Snowball (bring in large amounts of data into AWS data center rather than transmitting over broadband/Wi-Fi)
+		 - Storage Gateway (virtual machines installed in head office - replicates data back to S3)
+*Databases - RDS (Relational Database Service - MySQL, Microsoft SQL Server, etc.)
+		   - DynamoDB (For non-relational databases)
+		   - Elasticache (way of caching commonly queried things)
+		   - Red Shift (For data warehousing or business intelligence - for complex queries)
+*Migration - AWS Migration Hub (tracking service - allows tracking of apps. being migrated to AWS)
+		   - Application Discovery Service (automated set of tools and detects applications and their dependencies)
+		   - Database Migration Service (easy way to migrate databases into AWS)
+		   - Server Migration Service (similar to previous)
+		   - Snowball (migrating large amounts of data into Cloud)
+*Networking & Content Delivery - VPC (Amazon Virtual Private Cloud - virtual data center (configure firewalls, network ACLs, root tables, etc.))
+							   - CloudFront (can store info. closer to users if users are far away)
+							   - Route53 (Amazon's DNS service - lookup IPs)
+							   - API Gateway (way of creating your own APIs for other services to talk to)
+							   - Direct Connect (way of running direct line from data center into Amazon, directly connects into your VPC)
+*Developer Tools - CodeStar (way of getting group of devs together - way of project managing your code and collabing with other devs)
+				 - CodeCommit (place to store code, source control (think Git))
+				 - CodeBuild (when ready, this will compile code and run tests on it)
+				 - CodeDeploy (deployment service, automates apps. deployments to your EC2 instances)
+				 - CodePipeline (delivery service used to model and automate steps required to release product)
+				 - X-Ray (used to debug and analyse your serverless applications)
+				 - Cloud9 (IDE, place to develop code)
+*Management Tools - CloudWatch (monitoring service)
+				  - CloudFormation (way of scripting infrastructure, can use to deploy)
+				  - CloudTrail (using any service triggers API call and CloudTrail logs this, logs changes to AWS environment, on by default, only stores logs for most recent week)
+				  - Config (monitors configuration of entire AWS environment)
+				  - OpsWorks (similar to Elasicbeans, more robust, way of automating your environments and config of them)
+				  - Service Catalog (way of managing catalog of IT services approved for use (can be OSs, multi-tier architecture, etc.))
+				  - Systems Manager (interface for managing AWS resources (used commonly in EC2), can group resources)
+				  - Trusted Advisor (gives you advice around security, usage of services, how to save money, like an accountant)
+				  - Managed Services (manages EC2 instances etc.)
+*Media Services - Elastic Transcoder (takes media and resizes it to fit desired device screen size)
+				- MediaConvert, MediaLive, MediaPackage, MediaStore and Media Tailor are brand new and won't feature in exam (all to do with broadcasts and video streaming)
+*Machine Learning - SageMaker (makes it really easy for devs to use deep learning when coding for their environments)
+				  - Comprehend (sentiment analysis around data (think NLE!))
+				  - DeepLens (artificially aware camera)
+				  - Lex (way of communicating with customers, AI)
+				  - Machine Learning (analyses data set and you give it results and it predicts results for any new data)
+				  - Polly (takes text and turns it into speech)
+				  - Rekognition (upload image/video and it tells you what's in image/video (eg. dog, beach, etc.))
+				  - Amazon Translate (Google translate but Amazon)
+				  - Amazon Transcribe (brand new, automatic speech recognition, turns speech into text (good for deaf people))
+*Analytics - Athena (allows you to run SQL queries against things in S3 buckets)
+		   - EMR (Elastic Map Reduce - used for processing large amounts of data (big data solutions), has lots of servers that split data up for analysis)
+		   - CloudSearch and ElasticSearch Service (search services for AWS)
+		   - Kinesis (way of ingesting large amounts of data into AWS)
+		   - Kinesis Video Streams (could be part of Media Services, brand new service, similar to Kinesis but with media)
+		   - QuickSight (business intelligence tool, brand new)
+		   - Data Pipeline (way of moving data between different AWS services)
+		   - Glue (brand new, used for ETL making)
+*Security & Identity & Compliance - IAM (Identity Access Management)
+				  - Cognito (way of doing temporary device authentication - using mobile apps)
+				  - GuardDuty (brand new, monitors for malicious activities on AWS account
+				  - Inspector (agent installed on VM that you can run tests against - generates report)
+				  - Macie (scans S3 buckets and look for things containing personally identifiable information (PII))
+				  - Certificate Manager (way of managing SSL certificates)
+				  - CloudHSM (Cloud Hardware Security Modules - used to store keys to access EC2 instances for example, can use for encryption)
+				  - Directory Service (way of integrating Microsoft Active Directory Services with AWS services)
+				  - WAF (Web Application Firewall - stops SQL injections, looks at application layer)
+				  - Shield (helps to prevent DDoS attacks)
+				  - Artifact (portal for on-demand access to download AWS compliant reports)
+*Mobile Services - Mobile Hub (management console for applications)
+		 - Pinpoint (brand new, uses targeted push notifications for engagement of users)
+		 - AWS AppSync (brand new, automatically updates data in apps in real time and for offline users as soon as they reconnect)
+		 - Device Farm (way of testing apps on real life devices)
+		 - Mobile Analytics (analytics service for mobile)
+*AR/VR (Augmented Reality/Virtual Reality) - Sumerian (allows you to use a common set of tools to create an AR/VR environment)
+*Application Integration - Step Functions (allows you to manage your lambda functions)
+			 - Amazon MQ (brand new, way of doing message Q's, like RabbitMQ
+			 - SNS (notification service)
+			 - SQS (way of decoupling infrastructure)
+			 - SWF (Simple Workflow Service - activates when someone buys something)
+*Customer Engagement - Connect (brand new, contacts centre - like having your own call centre)
+		     - Simple Email Service (way of sending large amounts of email)
+*Business Productivity - Alexa For Business (use it to dial into meeting room, use to inform that printer's out of ink)
+		       - Chime (used for video conferencing)
+		       - Work Docs (like Dropbox for AWS)
+		       - WorkMail (like Google Mail or Office 365)
+*Desktop & App Streaming - Workspaces (VDI solution - running OS inside cloud)
+			 - AppStream 2.0 (way of streaming apps live to device)
+*Internet of Things - iOT and iOT Device Management (way of having many devices sending back information and managing them)
+		    - Amazon FreeRTOS (an OS for your microcontrollers)
+		    - Greengrass (lets you run local compute messaging data caching sync and machine learning interface capabilities for connected devices in a secure way)
+*Game Development - GameLift (way to create games)
+
+% Need to understand VPCs and be able to build one from memory
+% Direct Connect needs to be understood
+% Need really strong understanding CloudFormation, CloudTrail, Config and Trusted Advisor knowledge
+% Machine Learning won't come up in exam
+% Athena won't come up in exam
+% EMR is featured strongly in exam
+% Kinesis is important in exam
+% Data Pipeline is important in exam
+% QuickSight won't come up in exam
+% IAM needs to be known inside out
+% GuardDuty will not come up in exam
+% Directory service may be important in exam
+% Mobile Hub will not come up in exam
+% Pinpoint will not come up in exam
+% Device Farm will not come up in exam
+% Mobile Analytics will not come up in exam
+% AR/VR will not come up in exam
+% Amazon MQ will not come up in exam
+% Step Functions will not come up in exam
+% SNS, SQS and SWF will not come up in exam
+% Connect will not come up in exam
+% Simple Email Service might come up in exam
+% Alexa For Business will not come up in exam
+% Work Docs will come up in exam
+% Desktop & App Streaming module will not come up in exam
+% Internet of Things module will not come up in exam
+% Game Development module will not come up in exam
+
+% What they will test you on:
+% Global Infrastructure
+% Compute
+% Storage
+% Databases
+% Migration
+% Networking & Content Delivery
+% Management Tools
+% Analytics
+% Security & Identity & Compliance
+% Application Integration
+% Desktop & App Streaming
+
+% Need to know VPCs inside out
+
+IAM
+*Allows you to manage users and their level of access to AWS Console
+*Centralised control of AWS account
+*Shared access to AWS account
+*Granular Permissions
+*Identity Federation
+*Multifactor Authentication
+*Provide temp. access for users and services
+*Allows setup of password rotation policy
+*Integrates with many different AWS services
+*Supports PCI DSS Compliance
+*Critical terms:
+- Users (end users)
+- Groups (collection of users under one set of permissions)
+- Roles (you create roles & assign to AWS resources)
+- Policies (document defining permissions) - made up of JSON (JavaScript Object Notation) - consists of key-value pair (eg. "Effect":"Allow" with Effect being key and Allow being value)
+*IAM is global (doesn't have a region)
+- this is because users, groups and resources are universally available
+*Roles
+- Secure way to grant permissions to entities that you trust (IAM user in another account, app. code running on EC2 instance, etc.)
+*Billing Alerts and Alarms
+- bill goes over a certain threshold and alarm is triggered
+*Root account - first account created after AWS account setup, it has complete admin access
+*New users have no permissions when first created but are assigned Access Key ID and Secret Access Keys
+- secret access keys are not the same as passwords - can be used to communicate with AWS via cmd line for example
+*Must setup MFA on root account
+*Can customise and create your own password rotation policies
+% Know why IAM is global 
+% Know about Billing Alerts and Alarms
+
+S3
+*Simple Storage Service
+*Simple key-value store
+*Provides devs and IT teams with secure, durable and highly-scalable object storage
+*Easy to use with simple web services interface to store/retrieve any amount of data from anywhere on the web
+*Object-based storage - allows you to upload files (from 0B to 5TB)
+- unlimited storage (but you pay by the GB)
+- files stored in buckets
+- when uploading a file, you will receive a HTTP 200 code if upload successful
+*Bucket - folder in the cloud (can have folders inside buckets) and has universal namespace (names must be unique globally)
+- address will look like this: https://s3-eu-west-1.amazonaws.com/acloudguru
+*Safe
+*Data spread across multiple devices and facilities
+- Read after Write consistency for PUTS of new Objects - can always read straight after a write (even 1ms after)
+- Eventual Consistency for overwrite PUTS and DELETES (can take time to propagate) - reading after update may give either old or new version (but will eventually give new version - this is because S3 is spread over 
+multiple AZs and needs a little time to propagate out to other AZs)
+*Object-based - objects consist of Key (name of object), Value (data - made up of sequence of bytes), Version ID (important for versioning), Metadata (data about data), Subresources (Access Control Lists, Torrent, etc.)
+*Build for 99.99% availability for S3 platform
+*Amazon Guarantee 99.9% availability
+*Amazon guarantees 99.999999999% durability for S3 info (11 9s)
+*Tiered storage available 
+*Lifecycle management - can be moved from one storage tier to another depending on age of file
+*Versioning - can have version control on files
+*Encryption
+*Secure data using Access Control Lists and Bucket Policies
+*Uses redundant storage (designed to sustain loss of 2 facilities concurrently)
+*S3 Standard - durable, most expensive option, immediately available, frequently accessed
+*S3-IA - (Infrequently Accessed) for data accessed less frequently but requires rapid access - charged a retrieval fee but lower general fee than S3
+*S3 One Zone-IA - lower cost than S3-IA but doesn't have multiple AZ data resilience (same as S3-IA but only in one AZ)
+*Glacier - very cheap, used for archival only, standard retrieval time takes 3 - 5 hours
+*S3 charges - storage, requests, storage management pricing (metadata, tagging who it belongs to), data transfer pricing, transfer acceleration (allows fast, easy & secure transfers of files over long distances between end users and an S3 bucket)
+*Objects don't inherit bucket's tags
+*Can generate policies in S3 - select policy type, add statements (description of single permission) and generate policy
+% Data Consistency Model is important in exam
+% S3 is object-based - allows uploading of files
+% for files only (no databases, OSs, applications, etc.)
+% files can be 0B - 5TB
+% unlimited storage
+% files stored in buckets
+% S3 is universal namespace - names must be unique globally
+% example of bucket name: https://s3-eu-west-1.amazonaws.com/acloudguru
+% Read after write consistency and eventual consistency (consistency models)
+% S3 storage tiers - S3 standard, S3-IA, S3 One Zone-IA, Glacier
+% Core fundamentals of S3 object - Key, Value, Version ID, Metadata, Subresources (ACL & Torrent)
+% Read S3 FAQ before exam!
+% Probably won't explore generating policies in exam
+% Upload object to receive HTTP 200 code
+% Encryption: client side (on your own computer, then upload to AWS), server side (with Amazon S3 Managed Keys - SSE-C, with KMS - SSE-KMS, with Customer Provided Keys - SSE-C) 
+% Control access to buckets using bucket ACL or Bucket Policies
+% Buckets and the objects in them are private by default
