@@ -29,6 +29,24 @@ multiple AZs and needs a little time to propagate out to other AZs)
 *S3 One Zone-IA - lower cost than S3-IA but doesn't have multiple AZ data resilience (same as S3-IA but only in one AZ)
 *Glacier - very cheap, used for archival only, standard retrieval time takes 3 - 5 hours
 *S3 charges - storage, requests, storage management pricing (metadata, tagging who it belongs to), data transfer pricing, transfer acceleration (allows fast, easy & secure transfers of files over long distances between end users and an S3 bucket)
+*Objects don't inherit bucket's tags
+*Can generate policies in S3 - select policy type, add statements (description of single permission) and generate policy
+*Can enable versioning in buckets - can access previous versions by clicking on file and restore them
+- can hit bin button to delete latest (or any) version
+- if deleting whole object, it gets a delete marker - this can be deleted and the file will be restored
+- can configure bucket to have MFA delete so that people can't accidentally delete buckets (requires your security credentials and concat of a valid serial number + space + six-digit code displayed on device)
+*Can replicate one bucket into another using Management - Replicate - Add Role
+*Can add files to S3 using Amazon Command Line Interface
+- setup: aws configure
+- setup needs access key ID and secret access key (must create new user for this)
+- asks for default region name and then default output format
+- show list of files: aws s3 ls
+- copy contents of London bucket to Sao Paulo bucket: aws s3 cp --recursive s3://acloudguru-2018-thefitnessgrampacertest s3://myacloudgurusaopaulobucket2018
+*If file is deleted in London bucket (and Sao Paulo is replica) file is deleted in Sao Paulo too (both have delete markers)
+- however, if delete marker is deleted in one bucket, it is not deleted in the other
+- deleting one version in a bucket doesn't delete that version in the other bucket
+*Lifecycle rules - can delete files after a certain number of days
+
 % Data Consistency Model is important in exam
 % S3 is object-based - allows uploading of files
 % for files only (no databases, OSs, applications, etc.)
@@ -41,3 +59,20 @@ multiple AZs and needs a little time to propagate out to other AZs)
 % S3 storage tiers - S3 standard, S3-IA, S3 One Zone-IA, Glacier
 % Core fundamentals of S3 object - Key, Value, Version ID, Metadata, Subresources (ACL & Torrent)
 % Read S3 FAQ before exam!
+% Probably won't explore generating policies in exam
+% Upload object to receive HTTP 200 code
+% Encryption: client side (on your own computer, then upload to AWS), server side (with Amazon S3 Managed Keys - SSE-C, with KMS - SSE-KMS, with Customer Provided Keys - SSE-C) 
+% Control access to buckets using bucket ACL or Bucket Policies
+% Buckets and the objects in them are private by default
+% Versioning stores all versions of object (all writes and deletes)
+% Versioning is a great backup tool
+% Versioning cannot be disabled once enabled (but can be suspended)
+% Integrates with Lifecycle rules
+% MFA Delete can be used to provide additional layer of security
+% Versioning must be enabled on both source and destination buckets
+% Regions must be unique
+% Files in existing bucket are not replicated automatically (but any subsequent updates will be)
+% Cannot replicate to multiple buckets or do daisy chaining
+% Delete markers are replicated
+% Deleting individual versions/delete markers will not be replicated
+% Understand Cross Region Replication at a high level

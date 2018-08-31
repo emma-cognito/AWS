@@ -59,3 +59,20 @@ S3
 % S3 storage tiers - S3 standard, S3-IA, S3 One Zone-IA, Glacier
 % Core fundamentals of S3 object - Key, Value, Version ID, Metadata, Subresources (ACL & Torrent)
 % Read S3 FAQ before exam!
+% Probably won't explore generating policies in exam
+% Upload object to receive HTTP 200 code
+% Encryption: client side (on your own computer, then upload to AWS), server side (with Amazon S3 Managed Keys - SSE-C, with KMS - SSE-KMS, with Customer Provided Keys - SSE-C) 
+% Control access to buckets using bucket ACL or Bucket Policies
+% Buckets and the objects in them are private by default
+% Versioning stores all versions of object (all writes and deletes)
+% Versioning is a great backup tool
+% Versioning cannot be disabled once enabled (but can be suspended)
+% Integrates with Lifecycle rules
+% MFA Delete can be used to provide additional layer of security
+% Versioning must be enabled on both source and destination buckets
+% Regions must be unique
+% Files in existing bucket are not replicated automatically (but any subsequent updates will be)
+% Cannot replicate to multiple buckets or do daisy chaining
+% Delete markers are replicated
+% Deleting individual versions/delete markers will not be replicated
+% Understand Cross Region Replication at a high level
